@@ -84,6 +84,7 @@ bool DeferredDeleter::shouldStop() {
 }
 
 void *DeferredDeleter::run(void *arg) {
+    Sleep(10000);
     auto self = reinterpret_cast<DeferredDeleter *>(arg);
     std::unique_lock<std::mutex> lock(self->queueMutex);
     // Mark that working thread really started
